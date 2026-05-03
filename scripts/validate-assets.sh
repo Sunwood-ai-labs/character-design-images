@@ -6,7 +6,8 @@ cd "$repo_root"
 
 git lfs version >/dev/null
 tracked_patterns="$(git lfs track)"
-grep -Fq '*.png' <<<"$tracked_patterns"
+grep -Fq 'assets/originals/**' <<<"$tracked_patterns"
+grep -Fq 'assets/references/**' <<<"$tracked_patterns"
 test -f metadata/characters.csv
 test -d assets/originals
 test -d assets/exports

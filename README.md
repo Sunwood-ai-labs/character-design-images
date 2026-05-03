@@ -2,6 +2,19 @@
 
 キャラクターデザイン画像を整理して保管するためのリポジトリです。原画、書き出し画像、参考画像、サムネイルを分けて置き、各画像の権利・用途・状態は `metadata/characters.csv` に記録します。
 
+## Gallery
+
+| Character | Preview | Export |
+| --- | --- | --- |
+| Ayano Yukimura | <img src="assets/thumbnails/ayano-yukimura/ayano-yukimura_default_character-sheet_v001.jpg" width="180" alt="Ayano Yukimura"> | [character sheet](assets/exports/ayano-yukimura/ayano-yukimura_default_character-sheet_v001.jpeg) |
+| Fuhyo | <img src="assets/thumbnails/fuhyo/fuhyo_default_character-sheet_v001.jpg" width="180" alt="Fuhyo"> | [character sheet](assets/exports/fuhyo/fuhyo_default_character-sheet_v001.png) |
+| Hisha | <img src="assets/thumbnails/hisha/hisha_default_character-sheet_v001.jpg" width="180" alt="Hisha"> | [character sheet](assets/exports/hisha/hisha_default_character-sheet_v001.png) |
+| Kakugyo | <img src="assets/thumbnails/kakugyo/kakugyo_default_character-sheet_v001.jpg" width="180" alt="Kakugyo"> | [character sheet](assets/exports/kakugyo/kakugyo_default_character-sheet_v001.png) |
+| Kohaku | <img src="assets/thumbnails/kohaku/kohaku_default_character-sheet_v001.jpg" width="180" alt="Kohaku"> | [character sheet](assets/exports/kohaku/kohaku_default_character-sheet_v001.png) |
+| Maki | <img src="assets/thumbnails/maki/maki_default_character-sheet_v001.jpg" width="180" alt="Maki"> | [character sheet](assets/exports/maki/maki_default_character-sheet_v001.png) |
+| Momiji | <img src="assets/thumbnails/momiji/momiji_default_character-sheet_v001.jpg" width="180" alt="Momiji"> | [character sheet](assets/exports/momiji/momiji_default_character-sheet_v001.png) |
+| Onizuka | <img src="assets/thumbnails/onizuka/onizuka_default_character-sheet_v001.jpg" width="180" alt="Onizuka"> | [character sheet](assets/exports/onizuka/onizuka_default_character-sheet_v001.jpeg) |
+
 ## Directory Layout
 
 ```text
@@ -18,13 +31,13 @@ docs/
 
 ## Git LFS
 
-画像・制作ファイルは Git LFS で管理します。初回だけ次を実行してください。
+原本、参考画像、大容量の制作ファイルは Git LFS で管理します。公開プレビューしやすい `assets/exports/` と `assets/thumbnails/` は通常の Git blob として保存します。初回だけ次を実行してください。
 
 ```sh
 git lfs install
 ```
 
-このリポジトリでは `.gitattributes` で主要な画像形式と制作ファイル形式を LFS 対象にしています。
+このリポジトリでは `.gitattributes` で `assets/originals/`、`assets/references/`、主要な制作ファイル形式、アーカイブ形式を LFS 対象にしています。
 
 ## Adding Images
 

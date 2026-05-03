@@ -1,12 +1,10 @@
-# Raster images
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
-*.webp filter=lfs diff=lfs merge=lfs -text
-*.gif filter=lfs diff=lfs merge=lfs -text
-*.tif filter=lfs diff=lfs merge=lfs -text
-*.tiff filter=lfs diff=lfs merge=lfs -text
-*.bmp filter=lfs diff=lfs merge=lfs -text
+# Large source/reference assets
+assets/originals/** filter=lfs diff=lfs merge=lfs -text
+assets/references/** filter=lfs diff=lfs merge=lfs -text
+
+# Public previews should remain normal Git blobs for GitHub rendering.
+assets/exports/** -filter -diff -merge -text
+assets/thumbnails/** -filter -diff -merge -text
 
 # Design source files
 *.psd filter=lfs diff=lfs merge=lfs -text
