@@ -21,6 +21,11 @@ import csv
 import json
 from pathlib import Path
 
+try:
+    from PIL import Image
+except ImportError as exc:
+    raise SystemExit("Pillow is required to validate animated WebP previews") from exc
+
 root = Path.cwd()
 pets_csv = root / "metadata" / "pets.csv"
 
@@ -88,6 +93,21 @@ for row in rows:
         or b"ANIM" not in preview_bytes
     ):
         raise SystemExit(f"{pet_id}: preview is not an animated WebP: {preview_path.relative_to(root)}")
+
+    frames_manifest = json.loads((root / row["frames_path"] / "frames-manifest.json").read_text(encoding="utf-8"))
+    expected_frame_count = 0
+    for frame_row in frames_manifest["rows"]:
+        frame_count = len(frame_row["frames"])
+        expected_frame_count += frame_count if frame_count <= 2 else frame_count + frame_count - 2
+
+    with Image.open(preview_path) as preview:
+        actual_frame_count = getattr(preview, "n_frames", 1)
+
+    if actual_frame_count != expected_frame_count:
+        raise SystemExit(
+            f"{pet_id}: preview frame count {actual_frame_count} "
+            f"does not cover all sprite states ({expected_frame_count})"
+        )
 PY
 
 echo "character-design-images repository looks ready."

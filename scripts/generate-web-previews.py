@@ -17,37 +17,43 @@ except ImportError as exc:  # pragma: no cover - exercised only on missing deps.
     ) from exc
 
 
-FALLBACK_STATES = ("waving", "idle", "waiting", "running")
-
-
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Generate README-friendly animated WebP previews for pet packages."
     )
     parser.add_argument(
         "--state",
-        default="waving",
-        help="Preferred frame state to animate. Falls back to idle/waiting/running if absent.",
+        default="all",
+        help="Frame state to animate, or 'all' to play every sprite-sheet row.",
     )
     parser.add_argument(
         "--duration-ms",
         type=int,
-        default=140,
+        default=100,
         help="Frame duration in milliseconds.",
+    )
+    parser.add_argument(
+        "--quality",
+        type=int,
+        default=82,
+        help="Animated WebP quality, 1-100.",
     )
     return parser.parse_args()
 
 
-def choose_row(rows: list[dict[str, object]], preferred_state: str) -> dict[str, object]:
+def choose_rows(rows: list[dict[str, object]], state: str) -> list[dict[str, object]]:
+    if state == "all":
+        return rows
+
     by_state = {str(row["state"]): row for row in rows}
-    for state in (preferred_state, *FALLBACK_STATES):
-        if state in by_state:
-            return by_state[state]
+    if state in by_state:
+        return [by_state[state]]
+
     available = ", ".join(sorted(by_state))
-    raise ValueError(f"no previewable frame state found; available states: {available}")
+    raise ValueError(f"frame state '{state}' not found; available states: {available}")
 
 
-def load_frames(root: Path, frame_paths: list[str]) -> list[Image.Image]:
+def load_row_frames(root: Path, frame_paths: list[str]) -> list[Image.Image]:
     frames: list[Image.Image] = []
     for frame_path in frame_paths:
         path = root / frame_path
@@ -57,6 +63,13 @@ def load_frames(root: Path, frame_paths: list[str]) -> list[Image.Image]:
         raise ValueError("animated preview requires at least two frames")
     if len(frames) > 2:
         frames = frames + frames[-2:0:-1]
+    return frames
+
+
+def load_preview_frames(root: Path, rows: list[dict[str, object]]) -> list[Image.Image]:
+    frames: list[Image.Image] = []
+    for row in rows:
+        frames.extend(load_row_frames(root, row["frames"]))
     return frames
 
 
@@ -85,8 +98,8 @@ def main() -> None:
 
         frames_manifest_path = root / pet["frames_path"] / "frames-manifest.json"
         manifest = json.loads(frames_manifest_path.read_text(encoding="utf-8"))
-        frame_row = choose_row(manifest["rows"], args.state)
-        frames = load_frames(root, frame_row["frames"])
+        frame_rows = choose_rows(manifest["rows"], args.state)
+        frames = load_preview_frames(root, frame_rows)
 
         frames[0].save(
             preview_path,
@@ -95,15 +108,18 @@ def main() -> None:
             append_images=frames[1:],
             duration=args.duration_ms,
             loop=0,
-            lossless=True,
+            lossless=False,
+            quality=args.quality,
+            alpha_quality=90,
             method=6,
             disposal=2,
             background=(0, 0, 0, 0),
         )
         assert_animated_webp(preview_path)
+        states = ", ".join(str(row["state"]) for row in frame_rows)
         print(
             f"{character_id}: wrote {preview_path.relative_to(root)} "
-            f"from {frame_row['state']} ({len(frames)} frames)"
+            f"from {states} ({len(frames)} frames)"
         )
 
 

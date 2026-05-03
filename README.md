@@ -19,7 +19,7 @@
 
 Codex pet packages generated from the current character designs are stored under `assets/pets/<character-id>/`. Each folder keeps the installable `pet.json` + `spritesheet.webp` pair, extracted frames, contact sheet, frame review, and atlas validation output. The index is `metadata/pets.csv`.
 
-Animated WebP previews are generated from the pet frame sheets and kept under `assets/pets/<character-id>/preview/` so GitHub can render them directly in this README. Regenerate them with:
+Animated WebP previews play every sprite-sheet row from the pet frame manifest and are kept under `assets/pets/<character-id>/preview/` so GitHub can render them directly in this README. Regenerate them with:
 
 ```sh
 ./scripts/generate-web-previews.py
