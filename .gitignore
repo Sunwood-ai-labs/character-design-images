@@ -1,0 +1,19 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Editor and local tool state
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary export/cache files
+*.tmp
+*.temp
+*.bak
+*.autosave
+*.icloud
+Thumbs.db
