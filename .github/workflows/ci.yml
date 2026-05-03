@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-lfs
+          git lfs install --local
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pillow
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Validate assets and metadata
+        run: |
+          ./scripts/validate-assets.sh
+          ./scripts/validate-skill.sh
+          git diff --check
+          awk -F, 'NR == 1 {next} NF != 12 {print "bad field count", NR, NF, $0; bad=1} END {exit bad}' metadata/characters.csv
+          test -z "$(git lfs ls-files)"
+
+      - name: Build documentation
+        run: npm run docs:build

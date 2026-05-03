@@ -1,6 +1,6 @@
 # Naming
 
-ファイル名は後から検索しやすいように、英小文字、数字、ハイフンだけで揃えます。
+Use lowercase English letters, numbers, and hyphens so files stay easy to search, sort, and link from Markdown.
 
 ## Pattern
 
@@ -8,26 +8,34 @@
 <character-id>_<variant>_<view>_<version>.<ext>
 ```
 
+For character sheets, prefer:
+
+```text
+<character-id>_default_character-sheet_v001.<ext>
+```
+
 ## Examples
 
 ```text
-akari_default_front_v001.png
+akari_default_character-sheet_v001.png
 akari_default_turnaround_v002.psd
-akari_winter_costume_fullbody_v001.webp
+akari_winter-costume_fullbody_v001.webp
 ```
 
 ## Fields
 
-- `character-id`: キャラクター識別子。例: `akari`, `ren`, `mika`
-- `variant`: 衣装や状態。例: `default`, `winter-costume`, `battle`
-- `view`: 見た目の種類。例: `front`, `side`, `back`, `fullbody`, `portrait`, `turnaround`
-- `version`: `v001` から始め、差し替え時に番号を上げます。
+- `character-id`: Stable character identifier, such as `akari`, `ren`, or `mika`
+- `variant`: Costume or state, such as `default`, `winter-costume`, or `battle`
+- `view`: Asset view, such as `front`, `side`, `back`, `fullbody`, `portrait`, `turnaround`, or `character-sheet`
+- `version`: Start at `v001` and increment when replacing or revising an asset
 
-## Notes
+## Placement
 
-- スペース、日本語、記号はファイル名に使わず、説明は `metadata/characters.csv` に書きます。
-- 同じキャラクターの画像は、可能ならキャラクターごとのサブフォルダにまとめます。
-- 大きな元データは `assets/originals/`、確認用の軽い画像は `assets/exports/` に置きます。
+- Public character-sheet exports belong in `assets/exports/<character-id>/`.
+- README and docs thumbnails belong in `assets/thumbnails/<character-id>/`.
+- Large source files belong in `assets/originals/`.
+- Reference bundles belong in `assets/references/`.
+- Codex pet packages belong in `assets/pets/<character-id>/`.
 
 ## Codex Pet Packages
 

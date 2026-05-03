@@ -1,7 +1,7 @@
 <div align="center">
   <img src="docs/public/logo.svg" width="96" alt="Character Design Images logo">
   <h1>Character Design Images</h1>
-  <p>Public character sheet catalog, rights metadata, and Codex pet packages for reusable visual work.</p>
+  <p>再利用しやすいキャラクターシート、権利メタデータ、Codex pet package を整理する公開カタログです。</p>
 
   <p>
     <a href="README.md">English</a>
@@ -19,15 +19,15 @@
   </p>
 </div>
 
-## Overview
+## 概要
 
-This repository stores public preview exports for character design sheets, README-friendly thumbnails, searchable metadata, and generated Codex pet packages.
+このリポジトリは、キャラクターデザインシートの公開プレビュー、README 用サムネイル、検索しやすいメタデータ、生成済み Codex pet package を保管します。
 
-Use it when you need a known character reference before creating a new avatar, mascot, manga/game character, deck illustration, website visual, or Codex pet. The catalog is intentionally metadata-first: every image row records source, rights, usage scope, file path, and notes in `metadata/characters.csv`.
+新しいアバター、マスコット、漫画・ゲーム向けキャラクター、資料用イラスト、Web ビジュアル、Codex pet を作る前に、既存キャラクターの参照元として使う想定です。各画像の出典、権利状態、利用範囲、ファイルパス、補足は `metadata/characters.csv` に記録します。
 
-Current rights records are `unknown` and `internal-review`; do not treat these assets as commercially reusable until the metadata is updated.
+現在の権利レコードは `unknown` / `internal-review` です。メタデータが更新されるまでは、商用利用や外部再配布が可能な素材として扱わないでください。
 
-## Character Gallery
+## キャラクターギャラリー
 
 | Character | Preview | Export |
 | --- | --- | --- |
@@ -42,9 +42,9 @@ Current rights records are `unknown` and `internal-review`; do not treat these a
 
 ## Codex Pet Packages
 
-Generated Codex pet packages live under `assets/pets/<character-id>/`. Each package keeps the installable `pet.json` and `spritesheet.webp`, extracted frames, contact sheet, frame review, atlas validation, and README-friendly animated WebP preview. The searchable index is `metadata/pets.csv`.
+生成済み Codex pet package は `assets/pets/<character-id>/` にあります。各フォルダには、インストール用の `pet.json` と `spritesheet.webp`、抽出フレーム、contact sheet、frame review、atlas validation、README 用 animated WebP preview を置いています。検索用の一覧は `metadata/pets.csv` です。
 
-Regenerate animated previews with:
+animated preview の再生成:
 
 ```sh
 ./scripts/generate-web-previews.py
@@ -61,15 +61,15 @@ Regenerate animated previews with:
 | Momiji | <img src="assets/pets/momiji/preview/momiji_default_pet-preview_v001.webp" width="96" alt="Momiji pet animation preview"> | <img src="assets/pets/momiji/qa/contact-sheet.png" width="180" alt="Momiji pet contact sheet"> | [pet package](assets/pets/momiji/) |
 | Onizuka | <img src="assets/pets/onizuka/preview/onizuka_default_pet-preview_v001.webp" width="96" alt="Onizuka pet animation preview"> | <img src="assets/pets/onizuka/qa/contact-sheet.png" width="180" alt="Onizuka pet contact sheet"> | [pet package](assets/pets/onizuka/) |
 
-## Repository Layout
+## ディレクトリ構成
 
 ```text
 assets/
-  originals/   # Large source files, roughs, PSD/CLIP/Procreate files
-  exports/     # Public character sheet exports for review and reuse
+  originals/   # 元データ、ラフ、PSD/CLIP/Procreate など
+  exports/     # 共有・確認用の公開 character sheet export
   pets/        # Codex pet packages, frames, previews, QA, validation
-  references/  # Reference bundles and mood boards
-  thumbnails/  # Lightweight README and docs gallery thumbnails
+  references/  # 参考画像、ムードボード、外部資料
+  thumbnails/  # README / docs 用の軽量サムネイル
 metadata/
   characters.csv
   pets.csv
@@ -81,17 +81,17 @@ docs/
 
 ## Codex Skill
 
-This repository is installed locally as a Codex Skill:
+このリポジトリは Codex Skill としてローカルにインストールされています。
 
 ```text
 /Users/admin/.codex/skills/character-design-images -> /Users/admin/Prj/character-design-images
 ```
 
-When a task needs a character sheet, avatar, mascot, manga/game/anime character, or reusable visual character asset, Codex should inspect this repository before searching the web or generating new art. Keep `SKILL.md` aligned with `metadata/characters.csv` whenever the catalog changes.
+キャラクターシート、アバター、マスコット、漫画・ゲーム・アニメ風キャラクター、再利用可能なビジュアル素材が必要なタスクでは、Codex は Web 検索や新規生成の前にこのリポジトリを確認します。カタログを更新したら、`SKILL.md` と `metadata/characters.csv` を必ず揃えてください。
 
-## Local QA
+## ローカル QA
 
-Run these checks before committing asset, metadata, documentation, workflow, or skill changes:
+アセット、メタデータ、ドキュメント、workflow、skill を更新したら、commit 前に次を実行します。
 
 ```sh
 ./scripts/validate-assets.sh
@@ -102,19 +102,19 @@ git lfs ls-files
 npm run docs:build
 ```
 
-`git lfs ls-files` should normally be empty unless source files were intentionally added under `assets/originals/` or `assets/references/`.
+`git lfs ls-files` は通常空です。`assets/originals/` や `assets/references/` に大きな元データを意図的に追加した場合だけ、LFS tracked file が出る想定です。
 
-## Adding Images
+## 画像追加手順
 
-1. Add the image under the right `assets/` folder.
-2. Record the character name, variant, license/right status, usage scope, and image path in `metadata/characters.csv`.
-3. Follow the pattern in [docs/naming.md](docs/naming.md).
-4. Put public character-sheet exports in `assets/exports/<character-id>/`.
-5. Put README gallery thumbnails in `assets/thumbnails/<character-id>/`.
-6. Put large source files and reference bundles in `assets/originals/` or `assets/references/`, which are Git LFS-managed.
+1. 用途に合う `assets/` 配下へ画像を追加します。
+2. `metadata/characters.csv` にキャラクター名、variant、権利状態、利用範囲、画像パスを記録します。
+3. [docs/naming.md](docs/naming.md) の命名規則に合わせます。
+4. 公開 character sheet export は `assets/exports/<character-id>/` に置きます。
+5. README gallery thumbnail は `assets/thumbnails/<character-id>/` に置きます。
+6. 大きな元データや reference bundle は、Git LFS 管理の `assets/originals/` または `assets/references/` に置きます。
 
-Codex pet packages should live in `assets/pets/<character-id>/` and be indexed in `metadata/pets.csv`.
+Codex pet package を追加・更新する場合は `assets/pets/<character-id>/` に package と QA 一式を置き、`metadata/pets.csv` を更新します。
 
-## Rights
+## 権利
 
-This repository does not grant a blanket license for the images or pet packages. Check `metadata/characters.csv`, `metadata/pets.csv`, [RIGHTS.md](RIGHTS.md), and [LICENSE](LICENSE) before public, commercial, redistributed, or generated derivative use.
+このリポジトリは、画像や pet package に対して一括ライセンスを付与しません。公開利用、商用利用、再配布、生成物への派生利用の前に、`metadata/characters.csv`、`metadata/pets.csv`、[RIGHTS.md](RIGHTS.md)、[LICENSE](LICENSE) を確認してください。

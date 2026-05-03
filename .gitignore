@@ -17,3 +17,8 @@ Icon?
 *.autosave
 *.icloud
 Thumbs.db
+
+# Local dependencies and build output
+node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/

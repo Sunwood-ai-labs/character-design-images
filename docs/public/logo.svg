@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Character Design Images logo</title>
+  <desc id="desc">A flat image sheet icon with character silhouette and metadata rows.</desc>
+  <rect width="128" height="128" rx="24" fill="#0f172a"/>
+  <rect x="22" y="18" width="84" height="92" rx="10" fill="#f8fafc"/>
+  <rect x="32" y="28" width="64" height="48" rx="8" fill="#dbeafe"/>
+  <circle cx="64" cy="47" r="12" fill="#2563eb"/>
+  <path d="M43 72c4-13 14-20 21-20s17 7 21 20" fill="#2563eb"/>
+  <rect x="34" y="86" width="60" height="5" rx="2.5" fill="#64748b"/>
+  <rect x="34" y="97" width="42" height="5" rx="2.5" fill="#94a3b8"/>
+  <path d="M104 26h10v76h-10z" fill="#38bdf8"/>
+</svg>
