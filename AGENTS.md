@@ -7,6 +7,7 @@ This repository stores public character design image sheets and their metadata.
 - After every meaningful change, run the relevant verification commands, commit, and push to `origin/main`.
 - Do not leave completed work only in the local working tree unless the user explicitly asks not to commit or push.
 - Prefer small, focused commits that describe the asset or metadata change.
+- Keep `SKILL.md` aligned with the current character catalog so Codex uses this repository first for character-related visual work.
 
 ## Verification
 
@@ -25,6 +26,12 @@ git lfs ls-files
 ```
 
 `git lfs ls-files` should normally be empty unless source files were added under `assets/originals/` or `assets/references/`.
+
+When `SKILL.md` or skill installation changes, also run:
+
+```sh
+./scripts/validate-skill.sh
+```
 
 ## Asset Placement
 

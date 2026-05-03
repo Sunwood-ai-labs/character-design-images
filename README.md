@@ -39,6 +39,16 @@ git lfs install
 
 このリポジトリでは `.gitattributes` で `assets/originals/`、`assets/references/`、主要な制作ファイル形式、アーカイブ形式を LFS 対象にしています。
 
+## Codex Skill
+
+このリポジトリは Codex Skill としても使えます。キャラクター画像、キャラ設定、マスコット、アバター、漫画・ゲーム向けキャラ素材を使う作業では、まずこのリポジトリの `metadata/characters.csv` と `assets/exports/` を優先します。
+
+ローカルでは次の symlink でインストールしています。
+
+```text
+/Users/admin/.codex/skills/character-design-images -> /Users/admin/Prj/character-design-images
+```
+
 ## Adding Images
 
 1. 画像を用途に合う `assets/` 配下へ追加します。
