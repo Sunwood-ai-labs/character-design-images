@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "character_id": "momiji",
+  "pet_id": "momiji",
+  "display_name": "Momiji",
+  "package": "assets/pets/momiji",
+  "manifest": "assets/pets/momiji/pet.json",
+  "spritesheet": "assets/pets/momiji/spritesheet.webp",
+  "frames": "assets/pets/momiji/frames",
+  "validation": "assets/pets/momiji/final/validation.json",
+  "contact_sheet": "assets/pets/momiji/qa/contact-sheet.png",
+  "review": "assets/pets/momiji/qa/review.json",
+  "registered_codex_pet_dir": "~/.codex/pets/momiji",
+  "source_skill": "hatch-pet",
+  "videos": null,
+  "notes": "Codex pet package generated from the current character design asset. QA videos were skipped because ffmpeg was not available; frame review and atlas validation passed."
+}

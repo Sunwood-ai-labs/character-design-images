@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "character_id": "kakugyo",
+  "pet_id": "kakugyo",
+  "display_name": "Kakugyo",
+  "package": "assets/pets/kakugyo",
+  "manifest": "assets/pets/kakugyo/pet.json",
+  "spritesheet": "assets/pets/kakugyo/spritesheet.webp",
+  "frames": "assets/pets/kakugyo/frames",
+  "validation": "assets/pets/kakugyo/final/validation.json",
+  "contact_sheet": "assets/pets/kakugyo/qa/contact-sheet.png",
+  "review": "assets/pets/kakugyo/qa/review.json",
+  "registered_codex_pet_dir": "~/.codex/pets/kakugyo",
+  "source_skill": "hatch-pet",
+  "videos": null,
+  "notes": "Codex pet package generated from the current character design asset. QA videos were skipped because ffmpeg was not available; frame review and atlas validation passed."
+}

@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "character_id": "fuhyo",
+  "pet_id": "fuhyo",
+  "display_name": "Fuhyo",
+  "package": "assets/pets/fuhyo",
+  "manifest": "assets/pets/fuhyo/pet.json",
+  "spritesheet": "assets/pets/fuhyo/spritesheet.webp",
+  "frames": "assets/pets/fuhyo/frames",
+  "validation": "assets/pets/fuhyo/final/validation.json",
+  "contact_sheet": "assets/pets/fuhyo/qa/contact-sheet.png",
+  "review": "assets/pets/fuhyo/qa/review.json",
+  "registered_codex_pet_dir": "~/.codex/pets/fuhyo",
+  "source_skill": "hatch-pet",
+  "videos": null,
+  "notes": "Codex pet package generated from the current character design asset. QA videos were skipped because ffmpeg was not available; frame review and atlas validation passed."
+}

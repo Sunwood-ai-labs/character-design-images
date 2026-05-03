@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "character_id": "onizuka",
+  "pet_id": "onizuka",
+  "display_name": "Onizuka",
+  "package": "assets/pets/onizuka",
+  "manifest": "assets/pets/onizuka/pet.json",
+  "spritesheet": "assets/pets/onizuka/spritesheet.webp",
+  "frames": "assets/pets/onizuka/frames",
+  "validation": "assets/pets/onizuka/final/validation.json",
+  "contact_sheet": "assets/pets/onizuka/qa/contact-sheet.png",
+  "review": "assets/pets/onizuka/qa/review.json",
+  "registered_codex_pet_dir": "~/.codex/pets/onizuka",
+  "source_skill": "hatch-pet",
+  "videos": null,
+  "notes": "Codex pet package generated from the current character design asset. QA videos were skipped because ffmpeg was not available; frame review and atlas validation passed."
+}

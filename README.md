@@ -15,16 +15,33 @@
 | Momiji | <img src="assets/thumbnails/momiji/momiji_default_character-sheet_v001.jpg" width="180" alt="Momiji"> | [character sheet](assets/exports/momiji/momiji_default_character-sheet_v001.png) |
 | Onizuka | <img src="assets/thumbnails/onizuka/onizuka_default_character-sheet_v001.jpg" width="180" alt="Onizuka"> | [character sheet](assets/exports/onizuka/onizuka_default_character-sheet_v001.jpeg) |
 
+## Pet Assets
+
+Codex pet packages generated from the current character designs are stored under `assets/pets/<character-id>/`. Each folder keeps the installable `pet.json` + `spritesheet.webp` pair, extracted frames, contact sheet, frame review, and atlas validation output. The index is `metadata/pets.csv`.
+
+| Character | Pet QA | Package |
+| --- | --- | --- |
+| Ayano Yukimura | <img src="assets/pets/ayano-yukimura/qa/contact-sheet.png" width="180" alt="Ayano Yukimura pet contact sheet"> | [pet package](assets/pets/ayano-yukimura/) |
+| Fuhyo | <img src="assets/pets/fuhyo/qa/contact-sheet.png" width="180" alt="Fuhyo pet contact sheet"> | [pet package](assets/pets/fuhyo/) |
+| Hisha | <img src="assets/pets/hisha/qa/contact-sheet.png" width="180" alt="Hisha pet contact sheet"> | [pet package](assets/pets/hisha/) |
+| Kakugyo | <img src="assets/pets/kakugyo/qa/contact-sheet.png" width="180" alt="Kakugyo pet contact sheet"> | [pet package](assets/pets/kakugyo/) |
+| Kohaku | <img src="assets/pets/kohaku/qa/contact-sheet.png" width="180" alt="Kohaku pet contact sheet"> | [pet package](assets/pets/kohaku/) |
+| Maki | <img src="assets/pets/maki/qa/contact-sheet.png" width="180" alt="Maki pet contact sheet"> | [pet package](assets/pets/maki/) |
+| Momiji | <img src="assets/pets/momiji/qa/contact-sheet.png" width="180" alt="Momiji pet contact sheet"> | [pet package](assets/pets/momiji/) |
+| Onizuka | <img src="assets/pets/onizuka/qa/contact-sheet.png" width="180" alt="Onizuka pet contact sheet"> | [pet package](assets/pets/onizuka/) |
+
 ## Directory Layout
 
 ```text
 assets/
   originals/   # 元データ、ラフ、PSD/CLIP/Procreate など
   exports/     # PNG/JPEG/WebP など共有・確認用の書き出し
+  pets/        # Codex pet packages, extracted frames, QA, validation
   references/  # 参考画像、ムードボード、外部資料
   thumbnails/  # 一覧確認用の軽量サムネイル
 metadata/
   characters.csv
+  pets.csv
 docs/
   naming.md
 ```
@@ -54,6 +71,8 @@ git lfs install
 1. 画像を用途に合う `assets/` 配下へ追加します。
 2. `metadata/characters.csv` にキャラクター名、バリアント、ライセンス、画像パスを追記します。
 3. ファイル名は `docs/naming.md` のルールに合わせます。
+
+Codex pet を追加・更新する場合は `assets/pets/<character-id>/` に package と QA 一式を置き、`metadata/pets.csv` を更新します。
 
 ```sh
 git status --short

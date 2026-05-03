@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "character_id": "ayano-yukimura",
+  "pet_id": "ayano-yukimura",
+  "display_name": "Ayano Yukimura",
+  "package": "assets/pets/ayano-yukimura",
+  "manifest": "assets/pets/ayano-yukimura/pet.json",
+  "spritesheet": "assets/pets/ayano-yukimura/spritesheet.webp",
+  "frames": "assets/pets/ayano-yukimura/frames",
+  "validation": "assets/pets/ayano-yukimura/final/validation.json",
+  "contact_sheet": "assets/pets/ayano-yukimura/qa/contact-sheet.png",
+  "review": "assets/pets/ayano-yukimura/qa/review.json",
+  "registered_codex_pet_dir": "~/.codex/pets/ayano-yukimura",
+  "source_skill": "hatch-pet",
+  "videos": null,
+  "notes": "Codex pet package generated from the current character design asset. QA videos were skipped because ffmpeg was not available; frame review and atlas validation passed."
+}

@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "character_id": "hisha",
+  "pet_id": "hisha",
+  "display_name": "Hisha",
+  "package": "assets/pets/hisha",
+  "manifest": "assets/pets/hisha/pet.json",
+  "spritesheet": "assets/pets/hisha/spritesheet.webp",
+  "frames": "assets/pets/hisha/frames",
+  "validation": "assets/pets/hisha/final/validation.json",
+  "contact_sheet": "assets/pets/hisha/qa/contact-sheet.png",
+  "review": "assets/pets/hisha/qa/review.json",
+  "registered_codex_pet_dir": "~/.codex/pets/hisha",
+  "source_skill": "hatch-pet",
+  "videos": null,
+  "notes": "Codex pet package generated from the current character design asset. QA videos were skipped because ffmpeg was not available; frame review and atlas validation passed."
+}

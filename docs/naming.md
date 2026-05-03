@@ -28,3 +28,30 @@ akari_winter_costume_fullbody_v001.webp
 - スペース、日本語、記号はファイル名に使わず、説明は `metadata/characters.csv` に書きます。
 - 同じキャラクターの画像は、可能ならキャラクターごとのサブフォルダにまとめます。
 - 大きな元データは `assets/originals/`、確認用の軽い画像は `assets/exports/` に置きます。
+
+## Codex Pet Packages
+
+Codex pet packages are stored as runnable folders under:
+
+```text
+assets/pets/<character-id>/
+```
+
+Each package intentionally keeps the Codex runtime filenames:
+
+```text
+pet.json
+spritesheet.webp
+```
+
+Supporting QA files live in subfolders:
+
+```text
+frames/<state>/<frame-index>.png
+final/validation.json
+qa/contact-sheet.png
+qa/review.json
+qa/run-summary.json
+```
+
+The searchable index for pet packages is `metadata/pets.csv`.
