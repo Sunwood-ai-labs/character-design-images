@@ -48,6 +48,7 @@ Supporting QA files live in subfolders:
 
 ```text
 frames/<state>/<frame-index>.png
+preview/<character-id>_<variant>_pet-preview_<version>.webp
 final/validation.json
 qa/contact-sheet.png
 qa/review.json

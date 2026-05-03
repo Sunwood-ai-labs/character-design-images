@@ -52,6 +52,12 @@ List generated Codex pet packages:
 awk -F, 'NR > 1 {print $1 " - " $3 " - " $9}' metadata/pets.csv
 ```
 
+Regenerate README-friendly pet animation previews:
+
+```sh
+./scripts/generate-web-previews.py
+```
+
 Open the repository gallery:
 
 ```sh
@@ -68,7 +74,7 @@ Validate repository and skill wiring:
 ## Usage Guidance
 
 - For websites, apps, decks, README galleries, or mockups, prefer `assets/thumbnails/` for compact previews and link to the matching `assets/exports/` file.
-- For Codex pet reuse, use `metadata/pets.csv` and `assets/pets/<character-id>/`. Each pet folder contains installable `pet.json` and `spritesheet.webp` files plus extracted frames, QA contact sheet, frame review, and atlas validation.
+- For Codex pet reuse, use `metadata/pets.csv` and `assets/pets/<character-id>/`. Each pet folder contains installable `pet.json` and `spritesheet.webp` files plus extracted frames, WebP animation previews under `preview/`, QA contact sheet, frame review, and atlas validation.
 - For image-generation or illustration tasks, inspect the relevant character sheet first, then use it as the visual reference when the image tool supports references. If the tool cannot take image references, summarize the visible design traits from the sheet and say that the prompt is derived from this repository.
 - Treat `metadata/characters.csv` and `RIGHTS.md` as the source of truth for rights and usage scope. Current records are `unknown` and `internal-review`, so do not claim commercial or redistribution rights unless the user updates the metadata.
 - Keep public preview files in `assets/exports/`, `assets/thumbnails/`, and `assets/pets/` as normal Git blobs so GitHub can render them. Reserve Git LFS for `assets/originals/`, `assets/references/`, source files, and archives.

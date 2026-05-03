@@ -71,6 +71,23 @@ for row in rows:
     review = json.loads((root / row["review_path"]).read_text(encoding="utf-8"))
     if review.get("ok") is not True:
         raise SystemExit(f"{pet_id}: frame review is not ok")
+
+    preview_path = (
+        root
+        / row["package_path"]
+        / "preview"
+        / f"{row['character_id']}_{row['variant']}_pet-preview_{row['version']}.webp"
+    )
+    if not preview_path.exists():
+        raise SystemExit(f"{pet_id}: preview animation does not exist: {preview_path.relative_to(root)}")
+
+    preview_bytes = preview_path.read_bytes()
+    if (
+        preview_bytes[:4] != b"RIFF"
+        or preview_bytes[8:12] != b"WEBP"
+        or b"ANIM" not in preview_bytes
+    ):
+        raise SystemExit(f"{pet_id}: preview is not an animated WebP: {preview_path.relative_to(root)}")
 PY
 
 echo "character-design-images repository looks ready."
