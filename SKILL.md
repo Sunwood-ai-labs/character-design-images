@@ -76,6 +76,7 @@ Validate repository and skill wiring:
 - For websites, apps, decks, README galleries, or mockups, prefer `assets/thumbnails/` for compact previews and link to the matching `assets/exports/` file.
 - For Codex pet reuse, use `metadata/pets.csv` and `assets/pets/<character-id>/`. Each pet folder contains installable `pet.json` and `spritesheet.webp` files plus extracted frames, all-state WebP animation previews under `preview/`, QA contact sheet, frame review, and atlas validation.
 - For image-generation or illustration tasks, inspect the relevant character sheet first, then use it as the visual reference when the image tool supports references. If the tool cannot take image references, summarize the visible design traits from the sheet and say that the prompt is derived from this repository.
+- For article/video/social thumbnails that use a character, use `image_gen` as the primary renderer unless the user explicitly asks for SVG, deterministic layout code, or a vector asset. Do not replace image generation with SVG/PIL/canvas composition just to control text or layout.
 - Treat `metadata/characters.csv` and `RIGHTS.md` as the source of truth for rights and usage scope. Current records are `unknown` and `internal-review`, so do not claim commercial or redistribution rights unless the user updates the metadata.
 - Keep public preview files in `assets/exports/`, `assets/thumbnails/`, and `assets/pets/` as normal Git blobs so GitHub can render them. Reserve Git LFS for `assets/originals/`, `assets/references/`, source files, and archives.
 
